@@ -106,3 +106,20 @@ class FirebaseAuthBackend {
     return errorMessage;
   }
 }
+
+/*------INITIALIZING FIREBASE BACKEND -----*/
+
+let _fireBaseBackend = null;
+
+const initFirebaseBackend = (config) => {
+  if (!_fireBaseBackend) {
+    _fireBaseBackend = new FirebaseAuthBackend(config);
+  }
+  return _fireBaseBackend;
+};
+
+const getFirebaseBackend = () => {
+  return _fireBaseBackend;
+};
+
+export { initFirebaseBackend, getFirebaseBackend };
